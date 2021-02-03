@@ -29,9 +29,11 @@ func NewServer(queries *db.Queries) *Server {
 	//router.POST("./accounts", server.CreateAccount)
 	//router.Use(middleware())
 
-	router.POST("/login", server.Register)
+	router.POST("/login", server.LogIn)
+	router.POST("/register", server.Register)
 	router.POST("/practice", PracticeDIY)
 	router.GET("/practice", PracticeGenerate)
+	router.POST("/test", PracticeDIY)
 	router.GET("/test", PracticeGenerate)
 	router.POST("/create", PracticeDIY)
 	router.POST("/commit", func(c *gin.Context) {

@@ -7,7 +7,8 @@ import (
 )
 
 func SaveToFile(expression []string, name string) {
-	path := name
+	path := "/Users/huangjunqidemac/go/src/Calculation"
+	path += name
 	file, err := os.OpenFile(path, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Printf("err=%v", err)

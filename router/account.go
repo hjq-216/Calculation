@@ -48,7 +48,7 @@ type getAccountRequest struct {
 //LogIn handle login
 func (server *Server) LogIn(ctx *gin.Context) {
 	var req getAccountRequest
-	if err := ctx.ShouldBindJSON(&req); err != nil {
+	if err := ctx.Bind(&req); err != nil {
 		ctx.JSON(http.StatusBadRequest, errorResponse(err))
 		return
 	}
@@ -98,6 +98,7 @@ func (server *Server) Register(ctx *gin.Context) {
 			ctx.JSON(http.StatusOK, account1)
 			return
 		}
+
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
 		return
 	}
